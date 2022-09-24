@@ -41,7 +41,7 @@ class Track:
         
         if info.get("thumbnail"):
             self.thumbnail = info.get("thumbnail") 
-        elif SOUNDCLOUD_URL_REGEX.match(self.uri):
+        elif self.uri is None or SOUNDCLOUD_URL_REGEX.match(self.uri):
             # ok so theres no feasible way of getting a Soundcloud image URL
             # so we're just gonna leave it blank for brevity
             self.thumbnail = None
